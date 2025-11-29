@@ -96,14 +96,23 @@
 		"svelte"
 	],
 	"dependencies": {
+		"@lottiefiles/svelte-lottie-player": "^0.3.1",
+		"@neoconfetti/svelte": "^2.2.2",
 		"@node-rs/argon2": "^2.0.2",
+		"@number-flow/svelte": "^0.3.9",
+		"@types/d3": "^7.4.3",
 		"bits-ui": "^2.14.4",
+		"clsx": "^2.1.1",
 		"d3": "^7.9.0",
 		"echarts": "^6.0.0",
+		"echarts-gl": "^2.0.9",
 		"layerchart": "^1.0.12",
+		"lucide-svelte": "^0.555.0",
 		"postgres": "^3.4.7",
 		"svelte-echarts": "^1.0.0",
+		"svelte-motion": "^0.12.2",
 		"svelte-relative-time": "^0.0.6",
-		"svelte-ux": "^1.0.9"
+		"svelte-ux": "^1.0.9",
+		"tailwind-merge": "^3.4.0"
 	}
 }
