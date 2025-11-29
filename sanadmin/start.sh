@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 echo "🚀 Starting Sanadmin Backend..."
 
 if [ ! -d "build" ]; then
-  echo "❌ Error: 'build' directory missing. Build command failed or didn't run."
+  echo "❌ Error: build directory missing. Build command failed or did not run."
   exit 1
 fi
 
-node build/index.js
+HOST=0.0.0.0 node build/index.js
