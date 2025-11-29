@@ -1,0 +1,7 @@
+overrides:
+  '@sveltejs/kit@<1.15.1': '>=1.15.1'
+  '@sveltejs/kit@<1.15.2': '>=1.15.2'
+  '@sveltejs/kit@<2.8.3': '>=2.8.3'
+  cookie@<0.7.0: '>=0.7.0'
+  esbuild@<=0.24.2: '>=0.25.0'
+  postcss@<8.4.31: '>=8.4.31'
