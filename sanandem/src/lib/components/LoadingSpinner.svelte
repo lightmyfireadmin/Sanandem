@@ -25,13 +25,3 @@
 <div class="flex items-center justify-center">
     <div class="{sizeClasses[size]} {colorClasses[color]} border-2 border-t-transparent rounded-full animate-spin"></div>
 </div>
-
-<style>
-    @keyframes spin {
-        to { transform: rotate(360deg); }
-    }
-    
-    .animate-spin {
-        animation: spin 1s linear infinite;
-    }
-</style>

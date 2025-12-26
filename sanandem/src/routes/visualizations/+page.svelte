@@ -180,7 +180,8 @@
                     </p>
                 </div>
             {:else}
-            <p class="text-sm text-gray-500">Analyzing {totalReports} medication reports</p>
+                <p class="text-sm text-gray-500">Analyzing {totalReports} medication reports</p>
+            {/if}
         </div>
     </ScrollReveal>
 
