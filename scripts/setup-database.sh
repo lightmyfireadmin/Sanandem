@@ -35,7 +35,7 @@ if [ -z "$DATABASE_URL" ]; then
     exit 1
 fi
 
-echo "Database URL: ${DATABASE_URL:0:30}..." 
+echo "Database URL is set: ✓"
 echo ""
 
 # Check if psql is available

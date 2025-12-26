@@ -24,8 +24,10 @@ INSERT INTO "user" (
 ) VALUES (
     'admin-' || gen_random_uuid()::text,
     'admin',
-    -- REPLACE THIS WITH YOUR ARGON2 HASH
-    '$argon2id$v=19$m=19456,t=2,p=1$REPLACE_WITH_YOUR_HASH',
+    -- ⚠️ REPLACE THIS WITH YOUR ACTUAL ARGON2 HASH ⚠️
+    -- Generate with: node scripts/generate-password-hash.js "YourPassword"
+    -- This placeholder will NOT work - it must be replaced!
+    'REPLACE_WITH_YOUR_ACTUAL_ARGON2_HASH_FROM_GENERATE_SCRIPT',
     'superadmin',
     NOW()
 )

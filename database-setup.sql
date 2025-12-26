@@ -27,7 +27,6 @@ CREATE EXTENSION IF NOT EXISTS "pg_trgm"; -- For fuzzy text search
 -- Admin user table
 CREATE TABLE IF NOT EXISTS "user" (
     "id" TEXT PRIMARY KEY,
-    "age" INTEGER,
     "username" TEXT NOT NULL UNIQUE,
     "password_hash" TEXT NOT NULL,
     "role" TEXT NOT NULL DEFAULT 'admin',

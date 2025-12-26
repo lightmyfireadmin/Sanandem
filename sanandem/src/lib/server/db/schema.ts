@@ -3,7 +3,6 @@ import { pgTable, serial, integer, text, timestamp, boolean, jsonb } from 'drizz
 // Admin user table for sanadmin backend authentication
 export const user = pgTable('user', {
 	id: text('id').primaryKey(),
-	age: integer('age'),
 	username: text('username').notNull().unique(),
 	passwordHash: text('password_hash').notNull(),
 	role: text('role').notNull().default('admin'), // 'admin' or 'superadmin'
