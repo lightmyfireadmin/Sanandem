@@ -84,52 +84,44 @@ Our goals are to:
 - **Authentication**: Oslo.js for secure session management
 - **Deployment**: Node.js adapter for production
 
+## 📚 Documentation
+
+- **[QUICK-REFERENCE.md](QUICK-REFERENCE.md)** - Quick reference guide for common tasks
+- **[SETUP.md](SETUP.md)** - Detailed local development setup
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Production deployment guide
+- **[technew.md](technew.md)** - Complete deployment framework analysis
+- **[CI-CD.md](CI-CD.md)** - CI/CD pipeline recommendations
+- **[scripts/README.md](scripts/README.md)** - Helper scripts documentation
+
 ## Getting Started
 
-### Prerequisites
-- Node.js 20+
-- PostgreSQL database
-- npm or pnpm
+### Quick Start (5 minutes)
 
-### Installation
-
-1. Clone the repository:
 ```bash
+# 1. Clone and install
 git clone https://github.com/mitchlabeetch/Sanandem.git
 cd Sanandem
+
+# 2. Generate secrets
+node scripts/generate-secrets.js
+
+# 3. Set up environment
+cp sanandem/.env.example sanandem/.env
+cp sanadmin/.env.example sanadmin/.env
+# Edit .env files with generated secrets
+
+# 4. Set up database
+export DATABASE_URL="postgresql://user:pass@localhost:5432/sanandem"
+./scripts/setup-database.sh
+
+# 5. Start development
+cd sanandem && npm install && npm run dev  # Port 5173
+cd sanadmin && npm install && npm run dev  # Port 5174
 ```
 
-2. Install dependencies:
-```bash
-cd sanandem
-npm install
-```
+Visit `http://localhost:5173` for the public app and `http://localhost:5174` for admin dashboard.
 
-3. Set up environment variables:
-```bash
-cp .env.example .env
-# Edit .env with your database credentials
-```
-
-4. Initialize the database:
-```bash
-npm run db:push
-```
-
-5. Start the development server:
-```bash
-npm run dev
-```
-
-Visit `http://localhost:5173` to see the application.
-
-### Running the Admin Panel
-
-```bash
-cd sanadmin
-npm install
-npm run dev
-```
+📖 **For detailed setup instructions, see [SETUP.md](SETUP.md)**
 
 ## Project Structure
 
@@ -155,6 +147,22 @@ Key areas where we need help:
 - Translating the interface into more languages
 - Writing documentation
 - Testing and bug reports
+
+## Deployment
+
+Ready to deploy to production? See our comprehensive deployment guides:
+
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Step-by-step production deployment
+- **[technew.md](technew.md)** - Complete framework analysis (hosting, database, costs)
+- **[CI-CD.md](CI-CD.md)** - Continuous integration and deployment setup
+
+**Recommended Stack for Production:**
+- **Hosting**: Vercel (Frontend + Backend)
+- **Database**: Supabase Pro (PostgreSQL)
+- **Cost**: ~$65/month
+- **Alternative**: Railway ($10-20/month for budget deployments)
+
+See [technew.md](technew.md) for detailed comparisons, benchmarks, and recommendations.
 
 ## Privacy & Ethics
 
