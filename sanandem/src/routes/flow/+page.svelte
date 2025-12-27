@@ -59,7 +59,7 @@
     <p class="mb-4 text-muted-foreground">Tracing the lifecycle of a drug and where the data gap occurs.</p>
 
     <div class="h-[600px] w-full border rounded-lg bg-gray-50 shadow-inner">
-      <SvelteFlow {nodes} {edges} fitView>
+      <SvelteFlow nodes={$nodes} edges={$edges} fitView>
         <Controls />
         <Background />
         <MiniMap />

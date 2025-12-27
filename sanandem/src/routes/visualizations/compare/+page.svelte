@@ -141,7 +141,7 @@
         </div>
 
         <div class="mt-6 flex justify-center">
-            <Button on:click={handleCompare} size="lg" color="primary" class="w-full md:w-auto px-8">
+            <Button onclick={handleCompare} size="lg" color="primary" class="w-full md:w-auto px-8">
                 Compare Medications
             </Button>
         </div>

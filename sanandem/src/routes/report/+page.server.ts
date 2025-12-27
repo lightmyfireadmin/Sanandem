@@ -1,6 +1,6 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { createReport, hashIpAddress } from '$lib/server/db/reports.js';
-import type { Actions } from './$types';
+import type { Actions } from './$types.js';
 
 export const actions: Actions = {
 	default: async ({ request, getClientAddress }) => {

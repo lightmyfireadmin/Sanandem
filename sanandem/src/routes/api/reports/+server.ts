@@ -1,6 +1,6 @@
 import { json } from '@sveltejs/kit';
 import { getReports, getReportStatistics, getMedicationStatistics } from '$lib/server/db/reports.js';
-import type { RequestHandler } from './$types';
+import type { RequestHandler } from './$types.js';
 
 export const GET: RequestHandler = async ({ url }) => {
 	const limit = parseInt(url.searchParams.get('limit') || '50');

@@ -1,5 +1,5 @@
 <script>
-    import { papers } from '$lib/data';
+    import { papers } from '$lib/data/index.js';
     import NumberFlow from '@number-flow/svelte';
     import Spinner from '~icons/svg-spinners/ring-resize';
 

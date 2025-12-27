@@ -1,5 +1,5 @@
 import { getReports, getReportStatistics, getMedicationStatistics } from '$lib/server/db/reports.js';
-import type { PageServerLoad } from './$types';
+import type { PageServerLoad } from './$types.js';
 
 export const load: PageServerLoad = async () => {
 	try {

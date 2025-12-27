@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { Chart } from 'svelte-echarts';
-    import { mockMedicationReports, sideEffectStats, severityByMed } from '$lib/data';
+    import Chart from '$lib/components/Chart.svelte';
+    import { mockMedicationReports, sideEffectStats, severityByMed } from '$lib/data/index.js';
 
     // Interactive Filters
     let searchTerm = $state('');
@@ -17,50 +17,46 @@
     }));
 
     // Chart Options
-    let barOptions = {
-        title: { text: 'Reports by Severity', left: 'center', textStyle: { color: '#ccc' } },
-        tooltip: { trigger: 'item' },
-        xAxis: { type: 'category', data: ['Mild (1-3)', 'Moderate (4-7)', 'Severe (8-10)'], axisLabel: { color: '#ccc' } },
-        yAxis: { type: 'value', axisLabel: { color: '#ccc' } },
+    let barOptions = $derived({
+        title: { text: 'Side Effect Frequency', left: 'center', textStyle: { color: '#fff' } },
+        tooltip: { trigger: 'axis' as const },
+        xAxis: { type: 'category' as const, data: sideEffectStats.map(d => d.name), axisLabel: { color: '#ccc' } },
+        yAxis: { type: 'value' as const, axisLabel: { color: '#ccc' } },
         series: [{
-            data: [
-                mockMedicationReports.filter(r => r.severity <= 3).length,
-                mockMedicationReports.filter(r => r.severity > 3 && r.severity <= 7).length,
-                mockMedicationReports.filter(r => r.severity > 7).length
-            ],
-            type: 'bar',
+            data: sideEffectStats.map(d => d.value),
+            type: 'bar' as const,
             itemStyle: { color: '#3b82f6' }
         }]
-    };
+    });
 
     let pieOptions = {
         title: { text: 'Side Effect Distribution', left: 'center', textStyle: { color: '#ccc' } },
-        tooltip: { trigger: 'item' },
+        tooltip: { trigger: 'item' as const },
         series: [{
-            type: 'pie',
+            type: 'pie' as const,
             radius: ['40%', '70%'],
             avoidLabelOverlap: false,
             itemStyle: { borderRadius: 10, borderColor: '#1e293b', borderWidth: 2 },
             label: { show: false, position: 'center' },
-            emphasis: { label: { show: true, fontSize: '20', fontWeight: 'bold', color: '#fff' } },
+            emphasis: { label: { show: true, fontSize: '20', fontWeight: 'bold' as const, color: '#fff' } },
             labelLine: { show: false },
             data: sideEffectStats
         }]
     };
 
-    let lineOptions = {
-        title: { text: 'Average Severity Trend', left: 'center', textStyle: { color: '#ccc' } },
-        tooltip: { trigger: 'axis' },
-        xAxis: { type: 'category', boundaryGap: false, data: severityByMed.map(d => d.name), axisLabel: { color: '#ccc', rotate: 45 } },
-        yAxis: { type: 'value', axisLabel: { color: '#ccc' } },
+    let lineOptions = $derived({
+        title: { text: 'Severity by Medication', left: 'center', textStyle: { color: '#fff' } },
+        tooltip: { trigger: 'axis' as const },
+        xAxis: { type: 'category' as const, boundaryGap: false, data: severityByMed.map(d => d.name), axisLabel: { color: '#ccc', rotate: 45 } },
+        yAxis: { type: 'value' as const, axisLabel: { color: '#ccc' } },
         series: [{
             data: severityByMed.map(d => d.value),
-            type: 'line',
+            type: 'line' as const,
             areaStyle: { opacity: 0.3 },
             smooth: true,
             itemStyle: { color: '#10b981' }
         }]
-    };
+    });
 </script>
 
 <div class="container mx-auto p-6 space-y-8">

@@ -1,6 +1,6 @@
 <script lang="ts">
     import { AnimatedHeadline } from 'svelte-animated-headline';
-    import { isLowPerformanceMode } from '$lib/stores/settings';
+    import { isLowPerformanceMode } from '$lib/stores/settings.js';
     import ScrollReveal from '$lib/components/ScrollReveal.svelte';
 </script>
 

@@ -2,7 +2,7 @@
     import { fade } from 'svelte/transition';
     import { enhance } from '$app/forms';
     import { onMount } from 'svelte';
-    import type { ActionData } from './$types';
+    import type { ActionData } from './$types.js';
 
     let { form }: { form: ActionData } = $props();
     

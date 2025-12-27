@@ -1,5 +1,5 @@
-import { db } from './index';
-import { statisticsCache, type StatisticsCache } from './schema';
+import { db } from './index.js';
+import { statisticsCache, type StatisticsCache } from './schema.js';
 import { eq, lt } from 'drizzle-orm';
 
 /**

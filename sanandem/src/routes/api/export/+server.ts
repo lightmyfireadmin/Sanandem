@@ -1,6 +1,6 @@
 import { json } from '@sveltejs/kit';
 import { getReports, type ReportFilters } from '$lib/server/db/reports.js';
-import type { RequestHandler } from './$types';
+import type { RequestHandler } from './$types.js';
 
 /**
  * Export reports as CSV (fully anonymized)

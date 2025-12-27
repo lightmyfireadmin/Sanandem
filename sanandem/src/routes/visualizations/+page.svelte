@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
-    import { Chart } from 'svelte-echarts';
-    import { graphData } from '$lib/data';
+    import Chart from '$lib/components/Chart.svelte';
+    import { graphData } from '$lib/data/index.js';
 
     // Graph Chart Configuration
     let graphOptions = {
@@ -24,8 +24,8 @@
         series: [
             {
                 name: 'Les Miserables',
-                type: 'graph',
-                layout: 'circular',
+                type: 'graph' as const,
+                layout: 'circular' as const,
                 circular: {
                     rotateLabel: true
                 },
@@ -37,7 +37,7 @@
                     category: n.group,
                     label: {
                         show: true,
-                        position: 'right',
+                        position: 'right' as const,
                         formatter: '{b}'
                     },
                     itemStyle: {
@@ -61,7 +61,7 @@
                 ],
                 roam: true,
                 label: {
-                    position: 'right',
+                    position: 'right' as const,
                     formatter: '{b}'
                 },
                 lineStyle: {
@@ -74,6 +74,7 @@
 
     // Animated Beam Simulation (Canvas)
     let canvas: HTMLCanvasElement;
+    let canvasWidth = $state(0);
     let ctx: CanvasRenderingContext2D;
 
     onMount(() => {
@@ -168,7 +169,7 @@
             <div class="p-4 border-b border-slate-700 bg-slate-900/50">
                 <h2 class="text-xl font-semibold text-purple-300">Data Flow Simulation</h2>
             </div>
-            <div class="h-[500px] w-full relative bg-slate-900" bind:clientWidth={canvas}>
+            <div class="h-[500px] w-full relative bg-slate-900" bind:clientWidth={canvasWidth}>
                 <canvas bind:this={canvas} class="w-full h-full"></canvas>
                 <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                      <h3 class="text-4xl font-bold text-white/10 select-none">LIVE DATA</h3>

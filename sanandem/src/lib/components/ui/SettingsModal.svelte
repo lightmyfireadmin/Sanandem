@@ -1,6 +1,6 @@
 <script>
   import { Toggle, Button } from 'svelte-ux';
-  import { isLowPerformanceMode, isDarkMode, isDenseMode } from '$lib/stores/settings';
+  import { isLowPerformanceMode, isDarkMode, isDenseMode } from '$lib/stores/settings.js';
 
   let { open = $bindable(false) } = $props();
 

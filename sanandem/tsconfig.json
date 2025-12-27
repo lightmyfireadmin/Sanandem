@@ -9,7 +9,10 @@
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"strict": true,
-		"module": "NodeNext",
-		"moduleResolution": "NodeNext"
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "bundler",
+        "types": ["unplugin-icons/types/svelte"]
 	}
 }

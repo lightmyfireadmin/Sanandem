@@ -1,27 +1,18 @@
-<script>
+<script lang="ts">
   import * as d3 from 'd3';
   import { onMount } from 'svelte';
 
-  let svg;
+  export let data: any[] = [];
+
+  let svg: any;
   let width = 600;
   let height = 400;
 
-  const data = [
-    { id: "Nausea", group: 1, value: 45 },
-    { id: "Dizziness", group: 1, value: 38 },
-    { id: "Headache", group: 1, value: 30 },
-    { id: "Fatigue", group: 2, value: 28 },
-    { id: "Rash", group: 2, value: 15 },
-    { id: "Insomnia", group: 2, value: 12 },
-    { id: "Anxiety", group: 3, value: 20 },
-    { id: "Tremor", group: 3, value: 10 }
-  ];
-
   onMount(() => {
-    const simulation = d3.forceSimulation(data)
+    const simulation = d3.forceSimulation(data as any)
         .force("charge", d3.forceManyBody().strength(5))
         .force("center", d3.forceCenter(width / 2, height / 2))
-        .force("collision", d3.forceCollide().radius(d => d.value + 5));
+        .force("collision", d3.forceCollide().radius((d: any) => d.value + 5));
 
     const svgEl = d3.select(svg);
 
